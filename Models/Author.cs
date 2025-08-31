@@ -10,8 +10,9 @@ namespace DotNetAPI.Models
     {
         public int Id { get; set; }
 
+        [Required]
         [MaxLength(100)]
-        public required string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [MaxLength(500)]
         public string Biography { get; set; } = string.Empty;
@@ -21,6 +22,5 @@ namespace DotNetAPI.Models
         [MaxLength(100)]
         public string? Nationality { get; set; } = string.Empty;
         
-
     }
 }
