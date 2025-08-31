@@ -21,6 +21,7 @@ namespace DotNetAPI.Models
 
         [MaxLength(100)]
         public string? Nationality { get; set; } = string.Empty;
-        
+
+        public List<Book> Books { get; set; } = new List<Book>();
     }
 }
