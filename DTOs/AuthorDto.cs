@@ -24,6 +24,14 @@ namespace DotNetAPI.DTOs
         public DateTime DateOfBirth{ get; set; }
         public string? Nationality{get;set;}
 
+
+    }
+
+    public class UpdateAuthorDto{
+        public string Name{get;set;} = string.Empty;
+        public string? Biography {get;set;}
+        public DateTime DateOfBirth{get;set;}
+        public string? Nationality{get;set;}
     }
 
 
