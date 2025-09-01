@@ -15,6 +15,8 @@ namespace DotNetAPI.DTOs
 
         public string? Nationality { get; set; }
 
+        public List<BookSummaryDto> Books { get; set; } = new List<BookSummaryDto>();
+
     }
 
     public class CreateAuthorDto

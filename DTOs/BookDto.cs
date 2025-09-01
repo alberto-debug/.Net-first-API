@@ -17,7 +17,7 @@ namespace DotNetAPI.DTOs
         public string AuthorName { get; set; } = string.Empty;
     }
 
-    public class BookSumaryDto
+    public class BookSummaryDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
