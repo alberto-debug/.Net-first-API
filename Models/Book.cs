@@ -10,7 +10,7 @@ namespace DotNetAPI.Models
 {
     public class Book
     {
-        public int Id;
+        public int Id{ get; set; }
 
         [Required]
         [MaxLength(100)]
