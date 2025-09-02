@@ -164,3 +164,4 @@
 /home/alberto/Desktop/Projects/DOTNET/DotNetAPI/obj/Debug/net9.0/DotNetAPI.pdb
 /home/alberto/Desktop/Projects/DOTNET/DotNetAPI/obj/Debug/net9.0/DotNetAPI.genruntimeconfig.cache
 /home/alberto/Desktop/Projects/DOTNET/DotNetAPI/obj/Debug/net9.0/ref/DotNetAPI.dll
+/home/alberto/Desktop/Projects/DOTNET/DotNetAPI/obj/Debug/net9.0/DotNetAPI.sourcelink.json
