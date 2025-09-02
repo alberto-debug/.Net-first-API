@@ -23,10 +23,13 @@ namespace DotNetAPI.Controllers
 
         //Get: api/authors
         [HttpGet]
+        //Returns a list of AuthorDto objects wrapped in an HTTP response (ActionResult).
         public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthors()
         {
             var authors = await _context.Authors
+            //Include tells EF Core to load related entities — in this case, each author's books.
             .Include(a => a.Books)
+            //instead of returning full Author entities (with all database fields), we create a DTO (Data Transfer Object).
             .Select(a => new AuthorDto
             {
                 Id = a.Id,
@@ -43,8 +46,6 @@ namespace DotNetAPI.Controllers
             .ToListAsync();
             return Ok(authors);
         }
-
-
 
 
     }
