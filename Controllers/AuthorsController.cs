@@ -54,6 +54,12 @@ namespace DotNetAPI.Controllers
             .Include(a => a.Books)
             .FirstOrDefaultAsync(a => a.Id == id);
 
+            if (author == null)
+            {
+                return NotFound();
+            }
+            
+
 
             return null;
         }
