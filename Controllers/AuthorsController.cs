@@ -145,12 +145,19 @@ namespace DotNetAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public Task<IActionResult> DeleteAuthor(int id)
+        public async Task<IActionResult> DeleteAuthor(int id)
         {
+            var author = await _context.Authors.FindAsync(id);
+            if (author == null)
+            {
+                return NotFound();
+            }
 
-            
+            _context.Remove(author);
+            await _context.SaveChangesAsync();
 
-            return null;
+            return NoContent();
+
         }
 
 
