@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNetAPI.Data;
 using DotNetAPI.DTOs;
+using DotNetAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -76,6 +77,26 @@ namespace DotNetAPI.Controllers
             };
 
             return Ok(authorDto);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<AuthorDto>> CreateAuthor(CreateAuthorDto createAuthorDto)
+        {
+
+            var author = new Author
+            {
+                Name = createAuthorDto.Name,
+                Biography = createAuthorDto.Biography,
+                DateOfBirth = createAuthorDto.DateOfBirth,
+                Nationality = createAuthorDto.Nationality
+
+            };
+
+            _context.Authors.Add(author);
+            await _context.SaveChangesAsync();
+
+
+            return null;
         }
 
     }
