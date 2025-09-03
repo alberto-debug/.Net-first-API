@@ -95,8 +95,18 @@ namespace DotNetAPI.Controllers
             _context.Authors.Add(author);
             await _context.SaveChangesAsync();
 
+            var authorDto = new AuthorDto
+            {
+                Id = author.Id,
+                Name = author.Name,
+                Biography = author.Biography,
+                DateOfBirth = author.DateOfBirth,
+                Nationality = author.Nationality,
+                Books = new List<BookSummaryDto>()
+            };
 
-            return null;
+
+            return CreatedAtAction(nameof(GetAuthor), new{id = author.Id}, authorDto);
         }
 
     }
