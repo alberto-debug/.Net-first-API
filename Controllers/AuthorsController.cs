@@ -47,6 +47,16 @@ namespace DotNetAPI.Controllers
             return Ok(authors);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AuthorDto>> GetAuthor(int id)
+        {
+            var author = await _context.Authors
+            .Include(a => a.Books)
+            .FirstOrDefaultAsync(a => a.Id == id);
+
+
+            return null;
+        }
 
     }
 }
