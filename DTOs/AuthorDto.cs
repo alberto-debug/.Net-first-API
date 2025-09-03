@@ -36,8 +36,4 @@ namespace DotNetAPI.DTOs
         public string? Nationality{get;set;}
     }
 
-
-
-
-
 }

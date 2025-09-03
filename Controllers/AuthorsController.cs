@@ -105,8 +105,16 @@ namespace DotNetAPI.Controllers
                 Books = new List<BookSummaryDto>()
             };
 
+            return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, authorDto);
+        }
 
-            return CreatedAtAction(nameof(GetAuthor), new{id = author.Id}, authorDto);
+        public async Task<IActionResult> UpdateAuthor(int id, UpdateAuthorDto updateAuthorDto)
+        {
+
+            var author = await _context.Authors.FindAsync(id);
+
+
+            return null;
         }
 
     }
