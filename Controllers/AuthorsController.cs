@@ -108,13 +108,57 @@ namespace DotNetAPI.Controllers
             return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, authorDto);
         }
 
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAuthor(int id, UpdateAuthorDto updateAuthorDto)
         {
 
             var author = await _context.Authors.FindAsync(id);
 
+            if (author == null)
+            {
+                return NotFound();
+            }
+
+            author.Name = updateAuthorDto.Name;
+            author.Biography = updateAuthorDto.Biography;
+            author.DateOfBirth = updateAuthorDto.DateOfBirth;
+            author.Nationality = updateAuthorDto.Nationality;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                if (!AuthorExist(id))
+                {
+                    return NotFound();
+                }
+
+                throw;
+
+            }
+
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public Task<IActionResult> DeleteAuthor(int id)
+        {
+
+            
 
             return null;
+        }
+
+
+
+
+        private bool AuthorExist(int id)
+        {
+            return _context.Authors.Any(e => e.Id == id);
         }
 
     }
