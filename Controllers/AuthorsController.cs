@@ -58,10 +58,24 @@ namespace DotNetAPI.Controllers
             {
                 return NotFound();
             }
-            
 
+            var authorDto = new AuthorDto
+            {
+                Id = author.Id,
+                Name = author.Name,
+                Biography = author.Biography,
+                DateOfBirth = author.DateOfBirth,
+                Nationality = author.Nationality,
+                Books = author.Books.Select(b => new BookSummaryDto
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    Price = b.Price
+                }).ToList()
 
-            return null;
+            };
+
+            return Ok(authorDto);
         }
 
     }
