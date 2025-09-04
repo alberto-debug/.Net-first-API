@@ -161,8 +161,6 @@ namespace DotNetAPI.Controllers
         }
 
 
-
-
         private bool AuthorExist(int id)
         {
             return _context.Authors.Any(e => e.Id == id);
@@ -170,3 +168,16 @@ namespace DotNetAPI.Controllers
 
     }
 }
+
+
+//Notes: 
+//ActionResult<T>:
+//Means your endpoint returns data of type T (like a DTO) wrapped in an HTTP response.
+//Useful for GET or POST where you’re returning something back (like a resource or list).
+//IActionResult:
+//Means you only care about the HTTP response (200, 204, 404, etc.), not returning data.
+//Useful for PUT and DELETE, where the client doesn’t need the updated object back.
+
+
+//Use ActionResult<T> when returning data.
+//Use IActionResult when only sending a status (no body needed).
